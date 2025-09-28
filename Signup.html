@@ -1,0 +1,112 @@
+<!-- Signup.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up - MyPortfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white font-sans">
+
+<header class="fixed w-full bg-gray-800 shadow-lg z-50">
+  <nav class="max-w-6xl mx-auto flex justify-between items-center p-4">
+    <a href="index.html" class="text-2xl font-bold text-teal-400 hover:text-teal-300 transition">MyPortfolio</a>
+  </nav>
+</header>
+
+<section class="min-h-screen flex items-center justify-center p-6 pt-28">
+  <div class="bg-gray-800 p-8 rounded-xl shadow-lg w-full max-w-lg">
+    <h2 class="text-3xl font-bold text-teal-400 mb-6 text-center">Create an Account</h2>
+    <form id="signupForm" class="space-y-4">
+      <div>
+        <label class="block text-gray-300 mb-1">First Name</label>
+        <input type="text" name="firstname" required class="w-full px-4 py-2 rounded-lg bg-gray-900 border border-gray-600 focus:border-teal-400">
+      </div>
+
+      <div>
+        <label class="block text-gray-300 mb-1">Last Name</label>
+        <input type="text" name="lastname" required class="w-full px-4 py-2 rounded-lg bg-gray-900 border border-gray-600 focus:border-teal-400">
+      </div>
+
+      <div>
+        <label class="block text-gray-300 mb-1">Email</label>
+        <input type="email" name="email" required pattern="^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$" class="w-full px-4 py-2 rounded-lg bg-gray-900 border border-gray-600 focus:border-teal-400">
+      </div>
+
+      <div>
+        <label class="block text-gray-300 mb-1">Re-enter Email</label>
+        <input type="email" name="confirm_email" required pattern="^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$" class="w-full px-4 py-2 rounded-lg bg-gray-900 border border-gray-600 focus:border-teal-400">
+      </div>
+
+      <div>
+        <label class="block text-gray-300 mb-1">Password</label>
+        <input type="password" name="password" required minlength="6" class="w-full px-4 py-2 rounded-lg bg-gray-900 border border-gray-600 focus:border-teal-400">
+      </div>
+
+      <div>
+        <label class="block text-gray-300 mb-1">Re-enter Password</label>
+        <input type="password" name="confirm_password" required minlength="6" class="w-full px-4 py-2 rounded-lg bg-gray-900 border border-gray-600 focus:border-teal-400">
+      </div>
+
+      <p id="errorMsg" class="text-red-400 text-sm hidden"></p>
+
+      <!-- Sign Up Button -->
+      <button type="submit" class="w-full bg-teal-400 text-gray-900 font-semibold py-3 rounded-lg hover:bg-teal-300 transition">Sign Up</button>
+
+      <!-- Back Button -->
+      <button type="button" onclick="window.history.back()" class="w-full mt-3 bg-gray-600 text-white font-semibold py-3 rounded-lg hover:bg-gray-500 transition">Back</button>
+    </form>
+  </div>
+</section>
+
+<script>
+document.getElementById('signupForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const email = this.email.value.trim();
+  const confirmEmail = this.confirm_email.value.trim();
+  const password = this.password.value.trim();
+  const confirmPassword = this.confirm_password.value.trim();
+  const errorMsg = document.getElementById('errorMsg');
+
+  if (email !== confirmEmail) {
+    errorMsg.textContent = "Emails do not match.";
+    errorMsg.classList.remove("hidden");
+    return;
+  }
+  if (password !== confirmPassword) {
+    errorMsg.textContent = "Passwords do not match.";
+    errorMsg.classList.remove("hidden");
+    return;
+  }
+  errorMsg.classList.add("hidden");
+
+  // Submit to Netlify function
+  fetch('/.netlify/functions/signup', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      firstname: this.firstname.value,
+      lastname: this.lastname.value,
+      email,
+      password
+    })
+  })
+  .then(res => res.json())
+  .then(data => {
+    if (data.error) {
+      errorMsg.textContent = data.error;
+      errorMsg.classList.remove("hidden");
+    } else {
+      alert("Signup successful!");
+      window.location.href = "login.html";
+    }
+  })
+  .catch(() => {
+    errorMsg.textContent = "Something went wrong. Please try again.";
+    errorMsg.classList.remove("hidden");
+  });
+});
+</script>
+</body>
+</html>

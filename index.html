@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Font Awesome for social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Modern Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Your custom styles -->
+  <link rel="stylesheet" href="style.css" />
+
+</head>
+
+<body class="font-sans flex flex-col min-h-screen">
+  <!-- Networking Particles -->
+
+  <!-- Navbar -->
+  <header class="fixed w-full bg-gray-800 shadow-lg z-50">
+    <nav class="max-w-7xl mx-auto flex justify-between items-center h-16 px-6">
+<!-- Logo -->
+<a href="index.html" class="flex items-center">
+  <img src="images/logo.png" alt="My Logo" class="h-12 w-auto object-contain -mt-2">
+  <span class="hidden md:inline text-2xl font-bold text-teal-400 hover:text-teal-300 transition">Demesi</span>
+</a>
+
+
+<!-- Desktop Menu -->
+<div class="hidden md:flex items-center space-x-6">
+
+    <!-- Dropdown last -->
+  <div class="desktop-menu relative">
+    <button class="text-white hover:text-teal-400 font-semibold flex items-center text-lg">
+      Menu <i class="fas fa-chevron-down ml-1 text-sm"></i>
+    </button>
+    <div class="desktop-submenu">
+      <a href="about.html">About Me</a>
+      <a href="experience.html">Experience</a>
+      <a href="contact.html">Contact Me</a>
+    </div>
+  </div>
+
+  <!-- My Projects first -->
+  <a href="graphics.html" class="text-gray-300 hover:text-teal-400 transition text-lg">
+    Graphics
+  </a>
+  <a href="projects.html" class="text-gray-300 hover:text-teal-400 transition text-lg">
+    WebDev
+  </a>
+
+  <!-- Then Download CV -->
+  <a href="cv.pdf" download
+     class="px-4 py-2 bg-teal-500 rounded-lg hover:bg-teal-400 text-gray-900 font-semibold transition">
+    Download CV
+  </a>
+</div>
+
+
+
+      <!-- Mobile Right -->
+      <div class="md:hidden flex items-center space-x-3">
+        <a href="graphics.html" class="text-sm text-gray-300 hover:text-teal-400">Graphics</a>
+        <a href="projects.html" class="text-sm text-gray-300 hover:text-teal-400">WebDev</a>
+        <a href="cv.pdf" download class="text-sm px-3 py-1 bg-teal-500 rounded hover:bg-teal-400 text-gray-900 font-semibold">
+          CV
+        </a>
+        <button id="mobileMenuBtn" class="text-teal-400 text-2xl focus:outline-none">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Dropdown -->
+    <div id="mobileMenu"
+         class="hidden md:hidden bg-gray-800 overflow-hidden transition-max-height duration-300 ease-in-out"
+         style="max-height: 0">
+      <div class="flex flex-col border-t border-gray-700">
+        <a href="about.html" class="py-3 px-4 hover:text-teal-400 border-b border-gray-700">About Me</a>
+        <a href="experience.html" class="py-3 px-4 hover:text-teal-400 border-b border-gray-700">Experience</a>
+        <a href="contact.html" class="py-3 px-4 hover:text-teal-400 border-b border-gray-700">Contact Me</a>
+      </div>
+    </div>
+  </header>
+
+<!-- Hero Section -->
+<section class="relative min-h-screen flex flex-col items-center justify-center text-center p-8 overflow-hidden">
+  <!-- Networking Particles ONLY in hero -->
+  <div id="particles-js" class="absolute inset-0 -z-10"></div>
+
+  <h2 class="text-5xl md:text-6xl font-extrabold text-teal-400 mb-6">Welcome to My Portfolio</h2>
+  <p class="text-xl md:text-2xl text-gray-300 mb-6">
+    I am <span id="rotating-text" class="text-teal-400"></span>
+  </p>
+  <a href="#projects"
+     class="mt-6 px-6 py-3 bg-teal-400 text-gray-900 rounded-lg font-semibold hover:bg-teal-300 transition">
+    Explore My Projects
+  </a>
+</section>
+
+
+
+ <!-- 🔽 Projects Section (white version for homepage) -->
+<section id="projects" class="-mt-3 pb-20 px-4 max-w-[100%] mx-auto relative z-10">
+  <div class="bg-gray-900 p-10 rounded-xl">
+    <h2 class="text-4xl font-bold text-teal-400 text-center mb-4">My Projects</h2>
+    <p class="text-gray-300 text-center mb-10">A showcase of the work I’ve been building.
+    </p>
+
+  <!-- Projects Grid -->
+  <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+    <!-- Card 1 -->
+    <div class="bg-gray-100 rounded-xl shadow-lg overflow-hidden hover:scale-[1.02] transition">
+      <div class="relative group">
+        <img src="https://picsum.photos/600/400?random=1" alt="Project Screenshot" class="w-full h-48 object-cover">
+        <div class="absolute inset-0 bg-black/60 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition">
+          <a href="https://picsum.photos/1000/700?random=1" target="_blank" class="px-4 py-2 bg-gray-200 text-gray-900 rounded-lg font-semibold hover:bg-white transition">Preview</a>
+          <a href="#" class="px-4 py-2 bg-teal-500 text-white rounded-lg font-semibold hover:bg-teal-400 transition">View</a>
+        </div>
+      </div>
+      <div class="p-6">
+        <h3 class="text-xl font-semibold text-gray-900 mb-2">Portfolio Website</h3>
+        <p class="text-gray-600 mb-4">A personal portfolio website to showcase my work and skills.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-3 py-1 text-sm bg-teal-100 text-teal-600 rounded-full">HTML</span>
+          <span class="px-3 py-1 text-sm bg-teal-100 text-teal-600 rounded-full">CSS</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="bg-gray-100 rounded-xl shadow-lg overflow-hidden hover:scale-[1.02] transition">
+      <div class="relative group">
+        <img src="https://picsum.photos/600/400?random=2" alt="Project Screenshot" class="w-full h-48 object-cover">
+        <div class="absolute inset-0 bg-black/60 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition">
+          <a href="https://picsum.photos/1000/700?random=2" target="_blank" class="px-4 py-2 bg-gray-200 text-gray-900 rounded-lg font-semibold hover:bg-white transition">Preview</a>
+          <a href="#" class="px-4 py-2 bg-teal-500 text-white rounded-lg font-semibold hover:bg-teal-400 transition">View</a>
+        </div>
+      </div>
+      <div class="p-6">
+        <h3 class="text-xl font-semibold text-gray-900 mb-2">E-commerce Store</h3>
+        <p class="text-gray-600 mb-4">A modern online store with product listings and checkout system.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-3 py-1 text-sm bg-teal-100 text-teal-600 rounded-full">JavaScript</span>
+          <span class="px-3 py-1 text-sm bg-teal-100 text-teal-600 rounded-full">Bootstrap</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="bg-gray-100 rounded-xl shadow-lg overflow-hidden hover:scale-[1.02] transition">
+      <div class="relative group">
+        <img src="https://picsum.photos/600/400?random=3" alt="Project Screenshot" class="w-full h-48 object-cover">
+        <div class="absolute inset-0 bg-black/60 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition">
+          <a href="https://picsum.photos/1000/700?random=3" target="_blank" class="px-4 py-2 bg-gray-200 text-gray-900 rounded-lg font-semibold hover:bg-white transition">Preview</a>
+          <a href="#" class="px-4 py-2 bg-teal-500 text-white rounded-lg font-semibold hover:bg-teal-400 transition">View</a>
+        </div>
+      </div>
+      <div class="p-6">
+        <h3 class="text-xl font-semibold text-gray-900 mb-2">Task Manager App</h3>
+        <p class="text-gray-600 mb-4">A productivity app to create, organize, and track daily tasks.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-3 py-1 text-sm bg-teal-100 text-teal-600 rounded-full">React</span>
+          <span class="px-3 py-1 text-sm bg-teal-100 text-teal-600 rounded-full">API</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-gray-400 text-center py-10 border-t border-gray-800 relative z-10">
+  <div class="max-w-6xl mx-auto px-4">
+    <!-- About -->
+    <p class="mb-4">
+      © 2025 MyPortfolio. All rights reserved. MyPortfolio showcases my projects, skills, and professional journey. 
+    </p>
+    
+<!-- Quick Links with vertical separators -->
+<div class="mb-4 flex justify-center items-center space-x-2 text-gray-400 text-sm">
+  <a href="#home" class="px-2 hover:text-white">Home</a>
+  <span class="border-l border-gray-500 h-4"></span>
+  <a href="#projects" class="px-2 hover:text-white">Projects</a>
+  <span class="border-l border-gray-500 h-4"></span>
+  <a href="#about" class="px-2 hover:text-white">About</a>
+  <span class="border-l border-gray-500 h-4"></span>
+  <a href="#contact" class="px-2 hover:text-white">Contact</a>
+</div>
+
+    
+    <!-- Contact Info -->
+    <p class="text-sm">
+      Contact: <a href="mailto:youremail@example.com" class="hover:text-white">youremail@example.com</a> | Phone: +254 700 000000
+    </p>
+    
+    <!-- Socials (optional) -->
+    <div class="mt-4">
+      <a href="#" class="mx-2 hover:text-white">LinkedIn</a>
+      <a href="#" class="mx-2 hover:text-white">GitHub</a>
+      <a href="#" class="mx-2 hover:text-white">Twitter</a>
+    </div>
+  </div>
+</footer>
+
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+  <script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    mobileMenuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+      mobileMenu.style.maxHeight = mobileMenu.classList.contains("hidden") ? "0" : "500px";
+    });
+
+    // Rotating text
+    const roles = ["a Developer", "a Designer", "a Creator", "a Problem Solver"];
+    let index = 0;
+    const rotatingText = document.getElementById("rotating-text");
+
+    function rotateText() {
+      rotatingText.textContent = roles[index];
+      index = (index + 1) % roles.length;
+    }
+    rotateText();
+    setInterval(rotateText, 2000);
+
+    // Particles.js network effect
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 90, density: { enable: true, value_area: 800 } },
+        color: { value: "#14b8a6" },
+        shape: { type: "circle" },
+        opacity: { value: 0.7 },
+        size: { value: 3 },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: "#14b8a6",
+          opacity: 0.6,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 1,
+          direction: "none",
+          random: false,
+          straight: false,
+          out_mode: "out",
+          bounce: false
+        }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: { enable: true, mode: "grab" },
+          onclick: { enable: true, mode: "push" }
+        },
+        modes: {
+          grab: { distance: 200, line_linked: { opacity: 1 } },
+          push: { particles_nb: 4 }
+        }
+      },
+      retina_detect: true
+    });
+
+     // DESKTOP Dropdown hover with delay
+  const menu = document.querySelector(".desktop-menu");
+  const submenu = menu.querySelector(".desktop-submenu");
+  let hideTimeout;
+
+  menu.addEventListener("mouseenter", () => {
+    clearTimeout(hideTimeout);
+    submenu.classList.add("show");
+  });
+
+  menu.addEventListener("mouseleave", () => {
+    hideTimeout = setTimeout(() => {
+      submenu.classList.remove("show");
+    }, 500); // stays for 0.5s before hiding
+  });
+  </script>
+</body>
+</html>

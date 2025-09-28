@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - MyPortfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white font-sans">
+
+<header class="fixed w-full bg-gray-800 shadow-lg z-50">
+  <nav class="max-w-6xl mx-auto flex justify-between items-center p-4">
+    <a href="index.html" class="text-2xl font-bold text-teal-400 hover:text-teal-300 transition">MyPortfolio</a>
+  </nav>
+</header>
+
+<section class="min-h-screen flex items-center justify-center p-6 pt-28">
+  <div class="bg-gray-800 p-8 rounded-xl shadow-lg w-full max-w-lg">
+    <h2 class="text-3xl font-bold text-teal-400 mb-6 text-center">Login to Your Account</h2>
+
+    <form id="loginForm" class="space-y-4">
+      <input type="email" name="email" placeholder="Email" class="w-full px-4 py-2 rounded-lg bg-gray-900 border border-gray-600" required>
+      <input type="password" name="password" placeholder="Password" class="w-full px-4 py-2 rounded-lg bg-gray-900 border border-gray-600" required>
+      
+      <button type="submit" class="w-full bg-teal-400 text-gray-900 font-semibold py-3 rounded-lg hover:bg-teal-300 transition">Login</button>
+
+      <!-- Back Button -->
+      <a href="index.html" class="block w-full mt-2 bg-gray-600 text-white font-semibold py-3 rounded-lg hover:bg-gray-500 transition text-center">
+        Back
+      </a>
+    </form>
+
+    <p id="loginMessage" class="text-center mt-4"></p>
+  </div>
+</section>
+
+<script>
+document.getElementById('loginForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const data = Object.fromEntries(new FormData(e.target));
+
+  const res = await fetch('/.netlify/functions/login', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  });
+
+  const result = await res.json();
+  if (res.ok) {
+    localStorage.setItem('token', result.token);
+    showMessage("Login successful! Redirecting...", "green");
+    setTimeout(() => window.location.href = "index.html", 1500);
+  } else {
+    showMessage(result.error || "Login failed", "red");
+  }
+});
+
+function showMessage(msg, color) {
+  const el = document.getElementById('loginMessage');
+  el.textContent = msg;
+  el.style.color = color;
+}
+</script>
+
+</body>
+</html>

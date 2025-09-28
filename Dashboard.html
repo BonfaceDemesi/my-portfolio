@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard - MyPortfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Dropdown menu styling */
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      background-color: #1f2937;
+      min-width: 200px;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+    .dropdown-menu a {
+      display: block;
+      padding: 0.75rem 1rem;
+      color: #e5e7eb;
+    }
+    .dropdown-menu a:hover {
+      background-color: #14b8a6;
+      color: #111827;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white font-sans">
+
+<!-- Navbar -->
+<header class="fixed w-full bg-gray-800 shadow-lg z-50">
+  <nav class="max-w-7xl mx-auto flex justify-between items-center p-4">
+
+    <!-- Logo & Profile -->
+    <div class="flex items-center space-x-3">
+      <a href="index.html">
+        <img src="images/profile.jpg" alt="My Profile" class="w-10 h-10 rounded-full border-2 border-teal-400 hover:scale-105 transition">
+      </a>
+      <a href="index.html" class="text-2xl font-bold text-teal-400 hover:text-teal-300 transition">
+        MyPortfolio
+      </a>
+    </div>
+
+    <!-- Navigation Menu -->
+    <div class="flex items-center space-x-6">
+      <!-- My Profile -->
+      <div class="relative dropdown">
+        <button class="hover:text-teal-400">My Profile</button>
+        <div class="dropdown-menu">
+          <a href="update-details.html">Update Details</a>
+        </div>
+      </div>
+
+      <!-- Account -->
+      <div class="relative dropdown">
+        <button class="hover:text-teal-400">Account</button>
+        <div class="dropdown-menu">
+          <a href="update-account.html">Update My Account</a>
+        </div>
+      </div>
+
+      <!-- Verification -->
+      <div class="relative dropdown">
+        <button class="hover:text-teal-400">Verification</button>
+        <div class="dropdown-menu">
+          <a href="verify-documents.html">Verify Your Documents</a>
+          <a href="verification-status.html">Status</a>
+        </div>
+      </div>
+
+      <!-- Settings -->
+      <div class="relative dropdown">
+        <button class="hover:text-teal-400">Settings</button>
+        <div class="dropdown-menu">
+          <a href="customize-settings.html">Customize Your Settings</a>
+        </div>
+      </div>
+
+      <!-- Appearance -->
+      <div class="relative dropdown">
+        <button class="hover:text-teal-400">Appearance</button>
+        <div class="dropdown-menu">
+          <a href="select-theme.html">Select a Theme</a>
+        </div>
+      </div>
+
+      <!-- Book Tutor -->
+      <div class="relative dropdown">
+        <button class="hover:text-teal-400">Book Tutor</button>
+        <div class="dropdown-menu">
+          <a href="show-tutors.html">Show Tutors</a>
+          <a href="available-tutors.html">Available Tutors</a>
+        </div>
+      </div>
+
+      <!-- Support -->
+      <div class="relative dropdown">
+        <button class="hover:text-teal-400">Support</button>
+        <div class="dropdown-menu">
+          <a href="live-support.html">Live Support</a>
+          <a href="email-support.html">Email</a>
+        </div>
+      </div>
+
+      <!-- Payments -->
+      <div class="relative dropdown">
+        <button class="hover:text-teal-400">Payments</button>
+        <div class="dropdown-menu">
+          <a href="payment-methods.html">Check Payment Methods Available</a>
+          <a href="update-payment.html">Update Payment Methods</a>
+        </div>
+      </div>
+
+      <!-- Learning Materials -->
+      <div class="relative dropdown">
+        <button class="hover:text-teal-400">Learning Materials</button>
+        <div class="dropdown-menu">
+          <a href="all-materials.html">Show All</a>
+          <a href="available-materials.html">Available Ones</a>
+        </div>
+      </div>
+
+      <!-- Logout Button -->
+      <a href="index.html" class="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-400 transition">
+        Logout
+      </a>
+    </div>
+  </nav>
+</header>
+
+<!-- Dashboard Main Content -->
+<main class="pt-28 px-6 max-w-7xl mx-auto">
+  <h1 class="text-3xl font-bold mb-6">Dashboard Overview</h1>
+
+  <!-- Stats Cards -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+    <div class="bg-gray-800 p-6 rounded-xl shadow hover:shadow-lg transition">
+      <h2 class="text-lg font-semibold text-teal-400">Total Users</h2>
+      <p class="text-3xl font-bold mt-2">1,245</p>
+    </div>
+    <div class="bg-gray-800 p-6 rounded-xl shadow hover:shadow-lg transition">
+      <h2 class="text-lg font-semibold text-teal-400">Active Tutors</h2>
+      <p class="text-3xl font-bold mt-2">58</p>
+    </div>
+    <div class="bg-gray-800 p-6 rounded-xl shadow hover:shadow-lg transition">
+      <h2 class="text-lg font-semibold text-teal-400">Ongoing Courses</h2>
+      <p class="text-3xl font-bold mt-2">32</p>
+    </div>
+    <div class="bg-gray-800 p-6 rounded-xl shadow hover:shadow-lg transition">
+      <h2 class="text-lg font-semibold text-teal-400">Monthly Revenue</h2>
+      <p class="text-3xl font-bold mt-2">$12,340</p>
+    </div>
+  </div>
+
+  <!-- Chart & Events -->
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+    <div class="bg-gray-800 p-6 rounded-xl shadow hover:shadow-lg transition lg:col-span-2">
+      <h2 class="text-lg font-semibold text-teal-400 mb-4">Company Performance</h2>
+      <canvas id="performanceChart"></canvas>
+    </div>
+    <div class="bg-gray-800 p-6 rounded-xl shadow hover:shadow-lg transition">
+      <h2 class="text-lg font-semibold text-teal-400 mb-4">Upcoming Events</h2>
+      <ul class="space-y-3 text-gray-300">
+        <li>📅 Web Dev Workshop - Aug 15</li>
+        <li>📅 Tutor Meetup - Aug 20</li>
+        <li>📅 Platform Update - Aug 25</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Motive & Theme -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <div class="bg-gray-800 p-6 rounded-xl shadow hover:shadow-lg transition">
+      <h2 class="text-lg font-semibold text-teal-400 mb-4">Our Motive</h2>
+      <p class="text-gray-300">We aim to empower learners worldwide by connecting them with skilled tutors and high-quality resources. Our goal is to make education accessible and engaging for everyone.</p>
+    </div>
+    <div class="bg-gray-800 p-6 rounded-xl shadow hover:shadow-lg transition">
+      <h2 class="text-lg font-semibold text-teal-400 mb-4">Theme</h2>
+      <p class="text-gray-300">Current Theme: Dark Mode. Customize in the "Appearance" section to suit your preference.</p>
+    </div>
+  </div>
+</main>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const ctx = document.getElementById('performanceChart').getContext('2d');
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+      datasets: [{
+        label: 'Revenue',
+        data: [5000, 7000, 8000, 7500, 9000, 12340],
+        borderColor: '#14b8a6',
+        backgroundColor: 'rgba(20, 184, 166, 0.2)',
+        fill: true,
+        tension: 0.4
+      }]
+    },
+    options: { responsive: true, plugins: { legend: { labels: { color: 'white' }}} }
+  });
+</script>
+<script src="script.js"></script>
+<body class="body-light-bg">
+
+
+</body>
+</html>
