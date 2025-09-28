@@ -167,6 +167,78 @@
   </div>
 </section>
 
+<!-- Testimonials Section -->
+<section class="bg-gray-800 py-16">
+  <div class="max-w-5xl mx-auto text-center px-6">
+    <h2 class="text-3xl font-bold text-white mb-10">What People Say</h2>
+
+    <!-- Slider Container -->
+    <div class="relative overflow-hidden">
+      <div id="testimonial-slider" class="flex transition-transform duration-500">
+        
+        <!-- Testimonial 1 -->
+        <div class="min-w-full px-6">
+          <div class="bg-gray-900 p-8 rounded-xl shadow-lg">
+            <img src="images/logo.png" alt="Person 1" class="w-20 h-20 rounded-full mx-auto mb-4">
+            <p class="text-gray-300 italic">"Bonface is a talented designer. His work exceeded my expectations."</p>
+            <h4 class="text-teal-400 mt-4 font-semibold">John Doe</h4>
+            <span class="text-gray-400 text-sm">CEO, Company</span>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="min-w-full px-6">
+          <div class="bg-gray-900 p-8 rounded-xl shadow-lg">
+            <img src="https://via.placeholder.com/80" alt="Person 2" class="w-20 h-20 rounded-full mx-auto mb-4">
+            <p class="text-gray-300 italic">"Working with Bonface was an amazing experience!"</p>
+            <h4 class="text-teal-400 mt-4 font-semibold">Jane Smith</h4>
+            <span class="text-gray-400 text-sm">Creative Director</span>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="min-w-full px-6">
+          <div class="bg-gray-900 p-8 rounded-xl shadow-lg">
+            <img src="https://via.placeholder.com/80" alt="Person 3" class="w-20 h-20 rounded-full mx-auto mb-4">
+            <p class="text-gray-300 italic">"Professional and creative. Highly recommended!"</p>
+            <h4 class="text-teal-400 mt-4 font-semibold">Alex Brown</h4>
+            <span class="text-gray-400 text-sm">Project Manager</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Controls -->
+      <div class="flex justify-center space-x-4 mt-6">
+        <button onclick="prevTestimonial()" class="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg">‹</button>
+        <button onclick="nextTestimonial()" class="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg">›</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Slider Script -->
+<script>
+  let currentIndex = 0;
+  const slider = document.getElementById("testimonial-slider");
+  const slides = slider.children;
+  const totalSlides = slides.length;
+
+  function showSlide(index) {
+    slider.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  function nextTestimonial() {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    showSlide(currentIndex);
+  }
+
+  function prevTestimonial() {
+    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+    showSlide(currentIndex);
+  }
+</script>
+
 
 
 <!-- Footer -->
